@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="divId">
+
+    </div>
+</body>
+<script type="text/javascript">
+    var str = "abcde";
+    console.log(str[2]);
+
+    // 1. 使用粗体显示字符串
+    // document.getElementById("divId").innerHTML = str.bold();
+
+    // 2. 用大号字体显示字符串
+    // document.getElementById("divId").innerHTML = str.big();
+    
+    // 3. 显示闪烁字符串
+    // document.getElementById("divId").innerHTML = str.blink();
+
+    // 4. 以打字机文本显示字符串
+    document.getElementById("divId").innerHTML = str.fixed();
+    console.log(str.blink());
+
+
+</script>
+</html>

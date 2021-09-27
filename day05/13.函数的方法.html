@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+            call() 和 apply()这两个方法都是函数对象的方法，需要通过函数对象来调用
+                1）当对函数对象调用call()和apply()的时候，都会去执行函数
+                2）在调用call和apply的时候，可以将一个对象指定为其第一个参数，此时这个参数将会称为函数执行时的this
+                3）call()方法可以将实参在对象之后，依次传递
+                4）apply()方法需要将实参封装到一个数组中统一传递
+
+            this指定情况说明：
+                1）以函数形式的调用，this永远是window
+                2）以方法的形式调用时，this是调用者本身
+                3）以构造函数的形式调用，this是新创建的那个对象
+                4）使用call和apply调用时，this是指的第一个参数对象
+        */
+
+        // 1. 简单案例
+        function func(){
+            console.log("我的func函数！");
+        }
+        func();         // 我的func函数！
+        func.call();    // 我的func函数！
+        func.apply();   // 我的func函数！
+
+        // 2. call和apply传入参数对象
+        function func1(){
+            console.log(this);
+        }
+        func1();                        // Window
+        func1.call({name:'张三'});      // Object {name: "张三"}
+        func1.apply({name:'张三'});     // Object {name: "张三"}
+
+        // 3. call和apply传递实参
+        function func2(a,b){
+            console.log(this,a,b);
+        }
+        func2();                            // Window,2,3
+        func2.call({name:'张三'},2,3);      // Object {name: "张三"} 2 3
+        func2.apply({name:"张三"},[2,3])    // Object {name: "张三"} 2 3
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

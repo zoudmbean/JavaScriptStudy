@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.sayHello = function(){
+                console.log("say Hello");
+            }
+        }
+        
+        var p1 = new Person("张三",23,"男");
+        Person.prototype.toString = function(){
+            var result = "{";
+            for(k in this){
+                // 双保险
+                if(this.hasOwnProperty(k) && typeof this[k] != "function"){
+                    // debugger;
+                    result = result + k + ":" + this[k] +","
+                }
+            }
+            result = result.substring(0,result.length-1) + "}";
+            return result;
+        }
+        console.log(p1.toString());
+        alert(p1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

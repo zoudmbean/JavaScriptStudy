@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+            1. 获取元素节点
+                1.1 通过document对象调用
+                    —— document.getElementById()：通过id属性获取一个元素节点对象
+                    —— document.getElementsByTagName()：通过标签名获取一组元素节点对象
+                    —— document.getElementsByName()：通过name属性获取一组元素节点对象
+
+            2. 获取元素节点的子节点
+                2.1 通过具体的元素节点调用
+                    —— node.getElementsByTagName()：返回当前节点的指定标签名后代节点
+                    —— node.childNodes：表示当前节点的所有子节点(包括文本节点【空格、换行都算】)
+                    —— node.firstChild：表示当前节点的第一个子节点
+                    —— node.lastChild：表示当前节点的最后一个子节点
+                    —— node.children：获取当前元素的所有子元素（不包括文本节点）
+
+            3. 获取父节点和兄弟节点
+                3.1 通过具体的元素节点调用
+                    —— parentNode：表示当前节点的父节点
+                    —— previousSibling：表示当前节点的前一个兄弟节点
+                    —— nextSibling：表示当前节点的后一个兄弟节点
+        */
+        window.onload = () => {
+            
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+</html>

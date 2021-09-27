@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+    <script type="text/javascript">
+        var btnObject = document.getElementById("btn");
+        // 1. 修改button显示的文字
+        btnObject.innerHTML = "请点击"
+        // 2. 添加点击事件
+        btnObject.onclick = (e) => {
+            console.log(e);
+            alert("xxx");
+        };
+        /*btnObject.onmousemove = ()=>{
+            alert("onmousemove");
+        }*/
+    </script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #divId {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = () => {
+            var divObject = document.getElementById("divId");
+            document.onmousemove = (event) => {
+
+                // 解决兼容性问题
+                event = event || window.event;
+
+                // 获取滚动条滚动的距离
+                /*
+                * chrome认为浏览器的滚动条是body的，可以通过body.scrollTop来获取
+                * 火狐等浏览器认为浏览器的滚动条是html的，
+                */
+                //var scroller = document.body.scrollTop;  // 谷歌
+                //var scroller = document.documentElement.scrollTop; // 火狐和IE
+                // 处理兼容性问题
+                var scrollerY = document.body.scrollTop || document.documentElement.scrollTop;
+                var scrollerX = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+                // 获取鼠标坐标
+                /*
+                 * clientX和clientY：
+                 *      用户获取鼠标在当前可见窗口的坐标
+                 */
+                // var left = event.clientX;
+                // var top = event.clientY;
+
+                /*
+                 * pageX和pageY可以获取鼠标相对于当前页面的坐标
+				        但是这个两个属性在IE8中不支持，所以如果需要兼容IE8，则不要使用
+                 */
+                var left = event.pageX;
+                var top = event.pageY;
+                //console.log(left,top);
+
+                // 设置div的偏移量(偏移量只对开启了定位的元素有效，因此，需要设置div的position属性)
+                divObject.style.left = left + scrollerX + "px";  // 加上水平偏移量解决水平方向出现滚动条的问题
+                divObject.style.top = top + scrollerY + "px";    // 加上垂直偏移量解决垂直方向出现滚动条的问题
+            }
+        }
+    </script>
+</head>
+<body style="height: 1000px;width: 2000px;">
+    <div id="divId" >
+
+    </div>
+</body>
+</html>

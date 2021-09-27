@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 定义一个数组
+        var arr = ["孙悟空","猪八戒","沙和尚"];
+
+        // 1. push()：向数组的【末尾】添加1个或多个元素，并返回数组新的长度
+        arr.push("唐僧");
+        console.log(arr);   // ["孙悟空", "猪八戒", "沙和尚", "唐僧"]
+
+        // 2. join()：把数组中的所有元素放入一个字符串。元素通过指定的分隔符进行分隔
+        var arrStr = arr.join("——>");
+        console.log(arrStr);    // 孙悟空——>猪八戒——>沙和尚——>唐僧
+
+        // 3. pop()：删除并返回数组的最后一个元素
+        var p = arr.pop();
+        console.log(p);  // 唐僧
+
+        // 4. reverse()：反转数组元素,并返回数组
+        arr.reverse();
+        console.log(arr);   // ["沙和尚", "猪八戒", "孙悟空"]
+
+        // 5. unshift()：向数组的【开头】添加一个或者更多的元素，并返回数组新长度
+        arr.unshift("唐僧");
+        console.log(arr);   // ["唐僧", "沙和尚", "猪八戒", "孙悟空"]
+
+        // 6. shift()：删除并返回数组的第一个元素
+        var first = arr.shift();
+        console.log(first); // 唐僧
+
+        // 7. slice(startIndex,endIndex)：从某个已有的数组返回选定的元素，包头不包尾
+        var subArr = arr.slice(0,2);
+        console.log("subArr：" + subArr);
+
+        // 8. splice(startIndex,delCount,[newElement1...])：将指定的数组从原数组中删除，并返回被删除的元素。
+        // 参数：
+        //      参数1：要删除的元素的开始位置
+        //      参数2：表示要删除的数量
+        //      参数3：表示要新增的元素，这些元素将会自动插入到参数1位置的前面
+        // 提示：该函数可以用于做位置替换函数
+        var delEle1 = arr.splice(0,1);
+        console.log("delEle1: " + delEle1);
+        console.log("arr：" + arr);
+
+        var delEle2 = arr.splice(0,1,"红孩儿","牛魔王","玉面狐狸","铁扇公主","金角大王","银角大王");
+        console.log("delEle2: " + delEle2);
+        console.log("arr：" + arr);
+
+        // 9. concat(arr)：将两个数组合并成一个数组，并返回新的数组
+        var arr1 = [1,2,3,4];
+        var concatArr = arr.concat(arr1);
+        console.log("concatArr = " + concatArr);
+
+        // 数组的foreach遍历
+        // 参数1：当前正在遍历的元素
+        // 参数2：当前正在遍历的元素的索引位置
+        // 参数3：正在遍历的数组对象
+        arr.forEach((item,index,arrs) => {
+            console.log(item);
+            console.log(arrs[index]);
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

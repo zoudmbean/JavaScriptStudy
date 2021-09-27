@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+            1. 创建传统正则表达式
+                语法：var 变量名 = new RegExp("正则表达式","匹配模式");
+                    -- 匹配模式：i【忽略大小写】、g【全局匹配模式】
+
+            2. 正则表达式的方法：
+                2.1 test()：用于检测一个字符串是否符合正则表达式的规则。符合返回true，否则false。
+
+            3. 使用字面量来创建正则表达式
+                语法：var 变量名 = /正则表达式/匹配模式
+
+            4. 正则表达式的语法：
+                4.1 表示或的关系
+                    1）使用 | 表示或：适用于精确
+                    2）使用 [] 表示或：适用于范围
+                        -- [a-z]：表示任意小写字母
+                        -- [A-Z]：表示任意大写字母
+                        -- [A-z]：表示任意字母
+                        -- [0-9]：表示任意数字
+                4.2 表示取反（除了什么都行）
+                    使用 ^ 表示
+        */
+
+        // 1. 创建一个正则表达式，表示一个字符串中是否包含【 a 】,不忽略大小写
+        var reg = new RegExp("a","g");      // /a/
+        console.log(reg);
+
+        // 2. 检测字符串str中是否有a
+        var str = "11vdadfa";
+        var result = reg.test(str);
+        console.log(result);            // true
+
+        // 3. 使用字面量创建正则表达式
+        var reg1 = /ab/i
+        var res1 = reg1.test("ashajabcjsuja");
+        console.log("res1 = " + res1);  // res1 = true
+
+        // 4. 正则表达式的语法
+        //      4.1 表示或的关系
+        //          1）使用 | 表示或
+        var reg2 = /a|b/i;              // 匹配字符串中包含a或者b的字符串，且忽略大小写
+        var res2 = reg2.test("sjak1");
+        console.log("res2 = " + res2);  // res2 = true
+
+        //          2)使用 [] 表示或
+        var reg3 = /[a-z]/i;            // 匹配字符串包含字母的字符串，且忽略大小写
+        var res3 = reg3.test("112a25");
+        console.log("res3 = " + res3);  // res3 = true
+
+        var reg4 = /a[bde]c/g;          // 匹配字符串以a开头以c结尾，中间是b或者d或者e，且不忽略大小写
+        var res4 = reg4.test("aec");
+        console.log("res4 = " + res4);  // res4 = true
+
+        //      4.2 使用【^】表示取反
+        var reg5 = /[^ab]/;          // 字符串不包含ab以外的
+        var res5 = reg5.test("ab22");
+        console.log("res5 = " + res5);  // res5 = true
+        var res51 = reg5.test("ab");
+        console.log("res51 = " + res51);  // res51 = false
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
